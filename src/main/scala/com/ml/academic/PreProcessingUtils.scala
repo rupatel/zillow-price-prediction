@@ -6,6 +6,12 @@ import org.apache.spark.sql.types.{BooleanType, StringType}
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 object PreProcessingUtils {
+  /**
+    *
+    * @param rawFeatures: Raw features dataframe
+    * @return  Processed features dataframe with double values.
+    *          Categorical features in the given dataframe are converted to numerical indices.
+    */
   def getNumericFeatures(rawFeatures: DataFrame): DataFrame = {
     val cat_features = rawFeatures.schema.fields.foldLeft(List[String]()) { (cols, field) =>
       field.dataType match {
@@ -55,6 +61,14 @@ object PreProcessingUtils {
     return X
   }
 
+
+  /**
+    *
+    * @param properties: Raw Properties dataframe loaded from CSV file
+    * @param train1: Raw train1 dataframe loaded from CSV file
+    * @param train2: Raw train2 dataframe loaded from CSV file
+    * @return processed features dataframe for training zillow dataset.
+    */
   def get_XY_raw(properties: DataFrame, train1: DataFrame, train2: DataFrame): DataFrame = {
     // extracting year_month from transaction date in training data.
     val train1_with_yrmon = train1.withColumn("year_month",
@@ -77,6 +91,13 @@ object PreProcessingUtils {
     return getNumericFeatures(rawFeatures)
   }
 
+  /**
+    *
+    * @param base_path: path of the zillow dataset containing:properties_2017.csv,
+    *                   train_2016_v2.csv and train_2017.csv
+    * @param spark: The spark session
+    * @return a tuple of three dataframes loaded from three raw files in given directory.
+    */
   def getrawdf(base_path: String,spark:SparkSession): (DataFrame, DataFrame, DataFrame) = {
     val properties = spark.sqlContext.read.format("csv")
       .option("header", "true")
