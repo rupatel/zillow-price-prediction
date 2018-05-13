@@ -49,9 +49,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Deployment
 
-You would run the tool in two modes (configured via app.mode in Makefile):
-    train: To train the model on Zillow's dataset and persist it on S3 for further use
-    predict: To predict log error of Zestimate from previously trained model
+You would run the tool in two modes (configured via app.mode in Makefile):  
+    train: To train the model on Zillow's dataset and persist it on S3 for further use  
+    predict: To predict log error of Zestimate from previously trained model  
 
 You could also configure the cluster capacity and spark tuning options from the Makefile.
 You need to configure information regarding your AWS account such as ec2.subnet,ec2.master.sec.group,
@@ -66,6 +66,7 @@ make local
 Command to download app folder:
 make download-app
 
+You can allow download ZillowNotebook.json and import it in Zeppelin for data visualization purpose.
 ## Authors
 
 * **Rutul Patel**
