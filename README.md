@@ -1,7 +1,7 @@
 # Zillow Price Prediction Using Spark MLlib Random Forest
 
 Data sets are generally quite large, taxing capacity of main memory, local disk, and even remote disk.​
-A single machine can no more be used to train such big datasets using libraries like sci-kit learn​
+A single machine can no more be used to train such big datasets using libraries like sci-kit learn.​
 With the popularity of open source tools such as Spark MLlib, it has become relatively simple to implement distributed
 machine learning models such as Random forest which is massively parallelizable. ​In this project,
 we would mine Zillow's dataset to estimate log error of Zestimate using Spark MLlib's Random Forest Regressor.​
@@ -39,9 +39,9 @@ These instructions will get you a copy of the project up and running on your loc
     https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-proxy.html
 
 6) Create your s3 bucket, inside the bucket you may create a dataset folder in which you place
-   your zillow's dataset files: properties_2017.csv,train_2016_v2.csv and train_2017.csv.
+   your Zillow's dataset files: properties_2017.csv, train_2016_v2.csv and train_2017.csv.
 
-7) You would like to refer below link to access spark history server and various Web UI  
+7) You would like to refer below link to access spark history server and various Web UI:  
     https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-web-interfaces.html
 
 8) Configure your AWS credentials:  
@@ -54,23 +54,23 @@ You would run the tool in two modes (configured via app.mode in Makefile):
     predict: To predict log error of Zestimate from previously trained model  
 
 You could also configure the cluster capacity and spark tuning options from the Makefile.
-You need to configure information regarding your AWS account such as ec2.subnet,ec2.master.sec.group,
+You need to configure information regarding your AWS account such as ec2.subnet, ec2.master.sec.group,
 ec2.slave.sec.group etc
 
-Command to train on AWS EMR cluster:  
+Command to train/predict on AWS EMR cluster:  
 make cloud
 
-Command to train locally:  
+Command to train/predict locally:  
 make local
 
 Command to download app folder:  
 make download-app
 
-You can allow download ZillowNotebook.json and import it in Zeppelin for data visualization purpose.
+You can also download ZillowNotebook.json and import it in Zeppelin for data visualization purposes.
 ## Authors
 
 * **Rutul Patel**
 
 ## License
 
-This project is licensed under the Apache License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the Apache License - see the [LICENSE](LICENSE) file for details
