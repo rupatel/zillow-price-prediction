@@ -54,8 +54,7 @@ You would run the tool in two modes (configured via app.mode in Makefile):
     predict: To predict log error of Zestimate from previously trained model  
 
 You could also configure the cluster capacity and spark tuning options from the Makefile.
-You need to configure information regarding your AWS account such as ec2.subnet, ec2.master.sec.group,
-ec2.slave.sec.group etc
+You need to configure information regarding your AWS account such as ec2.subnet, ec2.master.sec.group, ec2.slave.sec.group etc
 
 Command to train/predict on AWS EMR cluster:  
 make cloud
