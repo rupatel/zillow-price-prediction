@@ -64,8 +64,8 @@ object ZillowPrediction {
         //  - maxDepth: max depth of each decision tree in the ensemble
         //  - numTrees: no of trees in ensemble
         val paramGrid = new ParamGridBuilder()
-          .addGrid(rf.maxDepth, Array(20))
-          .addGrid(rf.numTrees, Array(30))
+          .addGrid(rf.maxDepth, Array(11))
+          .addGrid(rf.numTrees, Array(50))
           .addGrid(rf.subsamplingRate, Array(0.7))
           .addGrid(rf.maxBins, Array(500))
           .build()
